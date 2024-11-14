@@ -1,4 +1,5 @@
 from operacoesbd import criarConexao, encerrarConexao
+from use_cases import *
 
 conexao = criarConexao('localhost', 'root', 'unifacisa', 'ouvidoria')
 
