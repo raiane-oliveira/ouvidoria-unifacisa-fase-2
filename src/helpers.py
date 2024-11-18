@@ -7,13 +7,9 @@ def getPositiveInteger():
 """
 
 def goBackToMenu():
-    escolha = -1
-    while escolha != 2:
-        print("1) Voltar ao menu principal\n2) Encerrar o programa de Ouvidoria")
-        if escolha == 1:
-            print("Voltando ao menu principal")
-        elif escolha <=0 or escolha >= 3:
-            print("Opção inválida. Por favor, tente novamente.")
+    escolha = input("Pressione qualquer tecla para voltar ao menu, ou '7' para encerrar o programa:\n")
+    return escolha
+
 
 def getPositiveInteger(question = "Escolha a pergunta"):
     numero = -1
