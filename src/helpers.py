@@ -15,9 +15,21 @@ def goBackToMenu():
         elif escolha <=0 or escolha >= 3:
             print("Opção inválida. Por favor, tente novamente.")
 
-def getPositiveInteger():
+def getPositiveInteger(question = "Escolha a pergunta"):
     numero = -1
-    while numero < 0:
-        numero = int(input("Digite o número que corresponde a opção desejada"))
-        if numero <= 0 or numero > 7:
-            print("Número inválido. Por favor, tente novamente.")
+    while numero < 1:
+        entrada = input(question)
+
+        if entrada.isdigit() and int(entrada) > 0:
+            numero = int(entrada)
+        else:
+            print("Opção inválida. Tente novamente!\n")
+
+    return numero
+
+"""
+Exemplo de como Usar
+pergunta_usuario = input("Qual pergunta você quer usar para o usuário? ")
+resultado = getPositiveInteger(question=pergunta_usuario)
+print(f"Você digitou: {resultado}")
+"""
