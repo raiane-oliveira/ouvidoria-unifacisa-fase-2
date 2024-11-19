@@ -35,7 +35,7 @@ def main():
         elif opcao == "3":
             print("\n3) Criar uma nova manifestação\n")
 
-            # TODO: (alan) método para criação
+            # TODO: (Alan) método para criação
 
             print("-" * 54)
         elif opcao == "4":
