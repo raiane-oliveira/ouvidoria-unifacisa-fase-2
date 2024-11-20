@@ -15,10 +15,10 @@ def menuManifestacoes():
 
 #todo: Metodo de criação de manifestações no banco de dados
 def criarManifestacao(conexao, tipo):
-    autor = getPositiveInteger("Digite seu nome: ")
-    conteudo = getPositiveInteger(f"Digite sua {tipo.lower()}: ") #CRIAR CORREÇÃO PARA O GÊNERO
+    autor = input("Digite seu nome: ")
+    conteudo = input(f"Digite sua(eu) {tipo.lower()}: ")
 
-    inserirManifestacao = "insert into manifestacoes (tipoManifestacao, autor, manifestacao) VALUES (%s, %s, %s)"
+    inserirManifestacao = "INSERT INTO manifestacoes (tipoManifestacao, autor, manifestacao) VALUES (%s, %s, %s)"
     valores = [tipo, autor, conteudo]
 
     insertNoBancoDados(conexao, inserirManifestacao, valores)
