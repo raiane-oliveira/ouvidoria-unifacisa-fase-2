@@ -22,6 +22,7 @@ def main():
             print("\n1) Listagem das Manifestações\n")
 
             # TODO: (fernanda) método para listagem
+            listarManifestacoes(conexao)
 
             print("-" * 54)
             # opcao = goBackToMenu()

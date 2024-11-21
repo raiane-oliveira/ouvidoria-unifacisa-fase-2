@@ -44,3 +44,19 @@ def executarMenuCriar(conexao):
             print("Obrigado pela preferência!\nVolte sempre!")
         else:
             print("Opção inválida!")
+
+def listarManifestacoes(conexao):
+    consultarListagem = 'SELECT * FROM ouvidoria'
+    listaManifestacao = listarBancoDados(conexao, consultarListagem)
+    if len(listaManifestacao) == 0:
+        print('Não há reclamações registradas')
+    else:
+        print()
+        print('Listando reclamações...')
+        for Manifestacao in listaManifestacao:
+            print('Código: ', Manifestacao[0])
+            print('Conteudo: ', Manifestacao[1])
+            print('Tipo: ', Manifestacao[2])
+            print('Autor: ', Manifestacao[3])
+            print('createdAt: ', Manifestacao[4] )
+            print()
