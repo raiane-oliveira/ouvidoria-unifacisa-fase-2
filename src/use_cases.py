@@ -60,3 +60,14 @@ def listarManifestacoes(conexao):
             print('Autor: ', Manifestacao[3])
             print('createdAt: ', Manifestacao[4] )
             print()
+def pesquisarPorCodigo(conexao):
+    codigoParaPesquisa = getPositiveInteger("Insira o código da manifestação que você deseja ver?")
+    pesquisarCodigo = "SELECT * FROM ouvidoria where codigo = %s"
+    codigo =[codigoParaPesquisa]
+    exibirManifestacaoPorcodigo = listarBancoDados(conexao, pesquisarCodigo,codigo)
+    if exibirManifestacaoPorcodigo:
+        for manifestacao in exibirManifestacaoPorcodigo:
+            print(manifestacao[0],":",manifestacao[2],"-",manifestacao[1],
+                  "/n-",manifestacao[3],"-",manifestacao[4])
+    else:
+        print("Não existe manifestação com esse código")
