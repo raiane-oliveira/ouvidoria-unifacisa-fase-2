@@ -90,19 +90,19 @@ def executarMenuCriar(conexao):
 
 
 def listarManifestacoes(conexao):
-    consultarListagem = 'SELECT * FROM manifestacoes'
+    consultarListagem = "SELECT * FROM manifestacoes"
     listaManifestacao = listarBancoDados(conexao, consultarListagem)
     if len(listaManifestacao) == 0:
-        print('Não há manifestações registradas.')
+        print("Não há manifestações registradas.")
     else:
         print()
-        print('Listando manifestações...')
-        for Manifestacao in listaManifestacao:
-            print('Código:', Manifestacao[0])
-            print('Conteúdo:', Manifestacao[1])
-            print('Tipo:', Manifestacao[2])
-            print('Autor:', Manifestacao[3])
-            print('Criado em:', formatDate(Manifestacao[4]))
+        print("Listando manifestações...")
+        for manifestacao in listaManifestacao:
+            print("Código:", manifestacao[0])
+            print("Conteúdo:", manifestacao[1])
+            print("Tipo:", manifestacao[2])
+            print("Autor:", manifestacao[3])
+            print("Criado em:", formatDate(manifestacao[4]))
             print()
 
 
@@ -113,10 +113,10 @@ def pesquisarPorCodigo(conexao):
     exibirManifestacaoPorcodigo = listarBancoDados(conexao, pesquisarCodigo,codigo)
     if exibirManifestacaoPorcodigo:
         for manifestacao in exibirManifestacaoPorcodigo:
-            print('\nCódigo:', manifestacao[0])
-            print('Conteúdo:', manifestacao[1])
-            print('Tipo:', manifestacao[2])
-            print('Autor:', manifestacao[3])
-            print('Criado em:', formatDate(manifestacao[4]))
+            print("\nCódigo:", manifestacao[0])
+            print("Conteúdo:", manifestacao[1])
+            print("Tipo:", manifestacao[2])
+            print("Autor:", manifestacao[3])
+            print("Criado em:", formatDate(manifestacao[4]))
     else:
         print("Não existe manifestação com esse código")

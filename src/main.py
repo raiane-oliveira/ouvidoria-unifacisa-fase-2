@@ -1,7 +1,7 @@
 from operacoesbd import criarConexao, encerrarConexao
 from use_cases import *
 
-conexao = criarConexao('localhost', 'root', 'unifacisa', 'ouvidoria')
+conexao = criarConexao("localhost", "root", "unifacisa", "ouvidoria")
 
 def main():
     opcao = 0
@@ -49,7 +49,7 @@ def main():
             # opcao = goBackToMenu()
         elif opcao == "5":
             print("\n5) Pesquisar uma manifestação por código\n")
-
+            pesquisarPorCodigo(conexao)
             # TODO: (letícya) método para pesquisa
 
             print("-" * 54)
