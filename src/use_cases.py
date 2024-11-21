@@ -1,5 +1,5 @@
 from operacoesbd import *
-from helpers import getPositiveInteger
+from helpers import getPositiveInteger, formatDate
 
 
 # exibir uma manifestação pelo código
@@ -12,7 +12,7 @@ def exibir_manifestacao(conexao, codigo):
         print("Conteúdo:", manifestacao[1])
         print("Tipo:", manifestacao[2])
         print("Autor:", manifestacao[3])
-        print("Criado em:", manifestacao[4])
+        print("Criado em:", formatDate(manifestacao[4]))
     else:
         print("\nManifestação não encontrada.")
     return manifestacao
@@ -98,11 +98,11 @@ def listarManifestacoes(conexao):
         print()
         print('Listando manifestações...')
         for Manifestacao in listaManifestacao:
-            print('Código: ', Manifestacao[0])
-            print('Conteudo: ', Manifestacao[1])
-            print('Tipo: ', Manifestacao[2])
-            print('Autor: ', Manifestacao[3])
-            print('Criado em: ', Manifestacao[4] )
+            print('Código:', Manifestacao[0])
+            print('Conteúdo:', Manifestacao[1])
+            print('Tipo:', Manifestacao[2])
+            print('Autor:', Manifestacao[3])
+            print('Criado em:', formatDate(Manifestacao[4]))
             print()
 
 
@@ -113,10 +113,10 @@ def pesquisarPorCodigo(conexao):
     exibirManifestacaoPorcodigo = listarBancoDados(conexao, pesquisarCodigo,codigo)
     if exibirManifestacaoPorcodigo:
         for manifestacao in exibirManifestacaoPorcodigo:
-            print('\nCódigo: ', manifestacao[0])
-            print('Conteudo: ', manifestacao[1])
-            print('Tipo: ', manifestacao[2])
-            print('Autor: ', manifestacao[3])
-            print('Criado em: ', manifestacao[4] )
+            print('\nCódigo:', manifestacao[0])
+            print('Conteúdo:', manifestacao[1])
+            print('Tipo:', manifestacao[2])
+            print('Autor:', manifestacao[3])
+            print('Criado em:', formatDate(manifestacao[4]))
     else:
         print("Não existe manifestação com esse código")
