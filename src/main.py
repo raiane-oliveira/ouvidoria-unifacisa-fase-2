@@ -22,6 +22,7 @@ def main():
             print("\n1) Listagem das Manifestações\n")
 
             # TODO: (fernanda) método para listagem
+            listarManifestacoes(conexao)
 
             print("-" * 54)
             # opcao = goBackToMenu()
@@ -33,7 +34,8 @@ def main():
             print("-" * 54)
             # opcao = goBackToMenu()
         elif opcao == "3":
-            print("\n3) Criar uma nova manifestação\n")
+            #print("\n3) Criar uma nova manifestação\n")
+            executarMenuCriar(conexao)
 
             # TODO: (Alan) método para criação
 
