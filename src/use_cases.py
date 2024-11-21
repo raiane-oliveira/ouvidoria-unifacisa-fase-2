@@ -11,7 +11,7 @@ def menuManifestacoes():
     print("1) Reclamação")
     print("2) Sugestão")
     print("3) Elogio")
-    print("4) Sair")
+    print("4) Voltar ao menu principal")
 
 #todo: Metodo de criação de manifestações no banco de dados
 def criarManifestacao(conexao, tipo):
@@ -22,7 +22,17 @@ def criarManifestacao(conexao, tipo):
     valores = [tipo, autor, conteudo]
 
     insertNoBancoDados(conexao, inserirManifestacao, valores)
-    print(f"{tipo} registrada com sucesso!")
+    print(f"{tipo} registrado(a) com sucesso!")
+
+#todo: perguntar ao usuario se ele quer fazer uma nova manifestação ou voltar ao menu
+    while True:
+        criarManifestacaoNovamente = getPositiveInteger("\nDeseja criar uma nova manifestação?\n1) Sim\n2) Não\n")
+        if criarManifestacaoNovamente == 1:
+            break
+        elif criarManifestacaoNovamente == 2:
+            return
+        else:
+            print("Opção inválida!")
 
 #todo: execução do menu
 def executarMenuCriar(conexao):
@@ -41,7 +51,7 @@ def executarMenuCriar(conexao):
             print("\nRegistro de Elogio")
             criarManifestacao(conexao, "Elogio")
         elif opcao == 4:
-            print("Obrigado pela preferência!\nVolte sempre!")
+            return
         else:
             print("Opção inválida!")
 
