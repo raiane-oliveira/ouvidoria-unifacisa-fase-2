@@ -3,8 +3,7 @@ import mysql.connector
 # Inicializa a conexão com o banco de dados
 def criarConexao(endereco, usuario, senha, bancodedados):
     try:
-        return mysql.c
-        onnector.connect(
+        return mysql.connector.connect(
             host=endereco,
             user=usuario,
             password=senha,
