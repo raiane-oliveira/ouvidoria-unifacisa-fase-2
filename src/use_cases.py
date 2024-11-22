@@ -49,14 +49,15 @@ def criarManifestacao(conexao, tipo):
     autor = input("Digite seu nome: ")
     conteudo = input(f"Digite sua(eu) {tipo.lower()}: ")
 
-    inserirManifestacao = "INSERT INTO manifestacoes (tipo, autor, conteudo) VALUES (%s, %s, %s)"
+    inserirManifestacao = "INSERT INTO manifestacao (tipo, autor, conteudo) VALUES (%s, %s, %s)"
     valores = [tipo, autor, conteudo]
 
     insertNoBancoDados(conexao, inserirManifestacao, valores)
     print(f"{tipo} registrado(a) com sucesso!")
 
 
-# perguntar ao usuario se ele quer fazer uma nova manifestação ou voltar ao menu
+# perguntar ao usuario se ele quer fazer uma nova manifestação ou voltar ao menu principal
+def criarManifestacaoNovamente():
     while True:
         criarManifestacaoNovamente = getPositiveInteger("\nDeseja criar uma nova manifestação?\n1) Sim\n2) Não\n")
         if criarManifestacaoNovamente == 1:
@@ -65,7 +66,6 @@ def criarManifestacao(conexao, tipo):
             return
         else:
             print("Opção inválida!")
-
 
 # execução do menu
 def executarMenuCriar(conexao):
@@ -77,12 +77,18 @@ def executarMenuCriar(conexao):
         if opcao == 1:
             print("\nRegistro de Reclamação")
             criarManifestacao(conexao, "Reclamação")
+            criarManifestacaoNovamente()
+            return
         elif opcao == 2:
             print("\nRegistro de Sugestão")
             criarManifestacao(conexao, "Sugestão")
+            criarManifestacaoNovamente()
+            return
         elif opcao == 3:
             print("\nRegistro de Elogio")
             criarManifestacao(conexao, "Elogio")
+            criarManifestacaoNovamente()
+            return
         elif opcao == 4:
             return
         else:
