@@ -1,3 +1,5 @@
+from datetime import datetime
+
 def goBackToMenu():
     """Pergunta ao usuário se ele quer voltar ao menu ou encerrar o programa"""
 
@@ -18,3 +20,6 @@ def getPositiveInteger(question = "Escolha a pergunta"):
             print("Opção inválida. Tente novamente!\n")
 
     return numero
+
+def formatDate(date: datetime):
+    return date.strftime("%d/%m/%Y")

@@ -1,7 +1,7 @@
 from operacoesbd import criarConexao, encerrarConexao
 from use_cases import *
 
-conexao = criarConexao('localhost', 'root', 'unifacisa', 'ouvidoria')
+conexao = criarConexao("localhost", "root", "unifacisa", "ouvidoria")
 
 def main():
     opcao = 0
@@ -39,9 +39,17 @@ def main():
 
             # TODO: (Alan) método para criação
 
-            print("-" * 54)
+        print("-" * 54)
         elif opcao == "4":
             print("\n4) Exibir quantidade de manifestações\n")
+
+            consultaManifesto = 'select count(*) from codigo'
+            codigo = listarBancoDados(conexao, consultaManifesto)
+            quantidade = codigo[0][0]
+
+            print("A quantidade total de manifestações é", quantidade, "\n")
+
+        print("-" * 54)
 
             # TODO: (pedro) método para quantidade
 
@@ -49,7 +57,7 @@ def main():
             # opcao = goBackToMenu()
         elif opcao == "5":
             print("\n5) Pesquisar uma manifestação por código\n")
-
+            pesquisarPorCodigo(conexao)
             # TODO: (letícya) método para pesquisa
 
             print("-" * 54)
