@@ -2,7 +2,7 @@ create schema ouvidoria;
 
 use ouvidoria;
 
-create table manifestacao(
+create table manifestacoes(
 codigo int auto_increment,
 conteudo varchar(150),
 tipo varchar (30),
