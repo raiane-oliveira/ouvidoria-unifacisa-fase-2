@@ -1,6 +1,40 @@
 from operacoesbd import *
 from helpers import getPositiveInteger, formatDate
 
+#OPÇÃO 2: Listar manifestação por Tipo
+def listandoManifestacoesPorTipo(conexao):
+    print("Tipos de Manifestações encontradas:")
+    print(
+        "1) Elogio \n"
+        "2) Sugestão \n"
+        "3) Reclamação \n"
+    )
+    codigoTipoManifestacao = 0
+    while codigoTipoManifestacao not in [1, 2, 3]:
+        codigoTipoManifestacao = getPositiveInteger("Digite o tipo a ser listado (1, 2 ou 3): ")
+
+        if codigoTipoManifestacao not in [1, 2, 3]:
+            print("Opção inválida")
+    print()
+
+    tipoManifestacao = "Reclamação"
+    if codigoTipoManifestacao == 1:
+        tipoManifestacao = "Elogio"
+    elif codigoTipoManifestacao == 2:
+      tipoManifestacao = "Sugestão"
+
+    consulta = 'SELECT * FROM manifestacoes WHERE tipo = %s'
+    manifestacoesPorTipo = listarBancoDados(conexao, consulta, [tipoManifestacao])
+
+    if len(manifestacoesPorTipo) > 0:
+      for manifestacao in manifestacoesPorTipo:
+          print("Código:", manifestacao[0])
+          print("Conteúdo:", manifestacao[1])
+          print("Tipo:", manifestacao[2])
+          print("Autor:", manifestacao[3])
+          print("Criado em:", formatDate(manifestacao[4]), "\n")
+    else:
+      print("A lista de", tipoManifestacao, "está vazia!\n",)
 
 # exibir uma manifestação pelo código
 def exibir_manifestacao(conexao, codigo):

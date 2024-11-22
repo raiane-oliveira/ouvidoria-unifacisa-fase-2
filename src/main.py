@@ -28,7 +28,7 @@ def main():
             # opcao = goBackToMenu()
         elif opcao == "2":
             print("\n2) Listagem das Manifestações por Tipo\n")
-            print("nhewnhewnhew")
+
             # TODO: (duda) método para listagem por tipo
 
             print("-" * 54)
