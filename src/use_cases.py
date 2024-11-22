@@ -83,7 +83,7 @@ def criarManifestacao(conexao, tipo):
     autor = input("Digite seu nome: ")
     conteudo = input(f"Digite sua(eu) {tipo.lower()}: ")
 
-    inserirManifestacao = "INSERT INTO manifestacao (tipo, autor, conteudo) VALUES (%s, %s, %s)"
+    inserirManifestacao = "INSERT INTO manifestacoes (tipo, autor, conteudo) VALUES (%s, %s, %s)"
     valores = [tipo, autor, conteudo]
 
     insertNoBancoDados(conexao, inserirManifestacao, valores)
