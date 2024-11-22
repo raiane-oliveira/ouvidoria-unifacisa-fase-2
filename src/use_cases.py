@@ -91,12 +91,15 @@ def criarManifestacao(conexao, tipo):
 
 
 # perguntar ao usuario se ele quer fazer uma nova manifestação ou voltar ao menu principal
-def criarManifestacaoNovamente():
+def criarManifestacaoNovamente(conexao):
     while True:
         criarManifestacaoNovamente = getPositiveInteger("\nDeseja criar uma nova manifestação?\n1) Sim\n2) Não\n")
         if criarManifestacaoNovamente == 1:
+            executarMenuCriar(conexao)
             break
         elif criarManifestacaoNovamente == 2:
+            from main import main
+            main()
             return
         else:
             print("Opção inválida!")
@@ -111,17 +114,17 @@ def executarMenuCriar(conexao):
         if opcao == 1:
             print("\nRegistro de Reclamação")
             criarManifestacao(conexao, "Reclamação")
-            criarManifestacaoNovamente()
+            criarManifestacaoNovamente(conexao)
             return
         elif opcao == 2:
             print("\nRegistro de Sugestão")
             criarManifestacao(conexao, "Sugestão")
-            criarManifestacaoNovamente()
+            criarManifestacaoNovamente(conexao)
             return
         elif opcao == 3:
             print("\nRegistro de Elogio")
             criarManifestacao(conexao, "Elogio")
-            criarManifestacaoNovamente()
+            criarManifestacaoNovamente(conexao)
             return
         elif opcao == 4:
             return
