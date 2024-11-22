@@ -90,42 +90,42 @@ def criarManifestacao(conexao, tipo):
     print(f"{tipo} registrado(a) com sucesso!")
 
 
-# perguntar ao usuario se ele quer fazer uma nova manifestação ou voltar ao menu principal
+#Perguntar ao usuario se ele quer fazer uma nova manifestação ou voltar ao menu principal
 def criarManifestacaoNovamente(conexao):
     while True:
         criarManifestacaoNovamente = getPositiveInteger("\nDeseja criar uma nova manifestação?\n1) Sim\n2) Não\n")
         if criarManifestacaoNovamente == 1:
-            executarMenuCriar(conexao)
-            break
+            return "voltarMenuManifestacoes"
         elif criarManifestacaoNovamente == 2:
-            from main import main
-            main()
-            return
+            return "voltarMenuPrincipal"
         else:
             print("Opção inválida!")
 
-# execução do menu
+
+#Execução do menu
 def executarMenuCriar(conexao):
-    opcao = -1
-    while opcao != 4:
+    while True:
         menuManifestacoes()
         opcao = getPositiveInteger("\nDigite a opção desejada: ")
 
         if opcao == 1:
             print("\nRegistro de Reclamação")
             criarManifestacao(conexao, "Reclamação")
-            criarManifestacaoNovamente(conexao)
-            return
+            retorno = criarManifestacaoNovamente(conexao)
+            if retorno == "voltarMenuPrincipal":
+                return
         elif opcao == 2:
             print("\nRegistro de Sugestão")
             criarManifestacao(conexao, "Sugestão")
-            criarManifestacaoNovamente(conexao)
-            return
+            retorno = criarManifestacaoNovamente(conexao)
+            if retorno == "voltarMenuPrincipal":
+                return
         elif opcao == 3:
             print("\nRegistro de Elogio")
             criarManifestacao(conexao, "Elogio")
-            criarManifestacaoNovamente(conexao)
-            return
+            retorno = criarManifestacaoNovamente(conexao)
+            if retorno == "voltarMenuPrincipal":
+                return
         elif opcao == 4:
             return
         else:
