@@ -56,7 +56,3 @@ python3 main.py
 
 ou clique no botão de ▶️ da sua IDE.
 
-
-### 👨‍💻 Contribuidores
-
-![GitHub Contributors Image](https://contrib.rocks/image?repo=raiane-oliveira/ouvidoria-unifacisa-fase-2)
